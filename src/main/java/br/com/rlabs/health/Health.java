@@ -3,6 +3,7 @@ package br.com.rlabs.health;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * The health class for information about a service.
@@ -22,6 +23,8 @@ public class Health {
 	 * @param builder
 	 */
 	private Health(Builder builder) {
+		Objects.requireNonNull(builder, "Builder must not be null");
+
 		this.status = builder.status;
 		this.details = Collections.unmodifiableMap(builder.details);
 	}
@@ -32,6 +35,34 @@ public class Health {
 
 	public Map<String, Object> getDetails() {
 		return details;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((details == null) ? 0 : details.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Health other = (Health) obj;
+		if (details == null) {
+			if (other.details != null)
+				return false;
+		} else if (!details.equals(other.details))
+			return false;
+		if (status != other.status)
+			return false;
+		return true;
 	}
 
 	@Override
@@ -74,16 +105,23 @@ public class Health {
 		}
 
 		public Builder(Status status) {
+			Objects.requireNonNull(status, "Status must not be null.");
+
 			this.status = status;
 			this.details = new LinkedHashMap<>();
 		}
 
 		public Builder(Status status, Map<String, ?> details) {
+			Objects.requireNonNull(status, "Status must not be null.");
+			Objects.requireNonNull(details, "Details must not be null.");
+
 			this.status = status;
 			this.details = new LinkedHashMap<>(details);
 		}
 
 		public Builder withException(Exception e) {
+			Objects.requireNonNull(e, "Exception must not be null.");
+
 			return withDetail("error", e.getClass().getName() + ": " + e.getMessage());
 		}
 

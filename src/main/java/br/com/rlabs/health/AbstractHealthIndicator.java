@@ -4,6 +4,13 @@ import org.apache.log4j.Logger;
 
 import br.com.rlabs.health.Health.Builder;
 
+/**
+ * The Abstract Health Indicator.
+ * 
+ * @author Ryan Padilha <ryan.padilha@gmail.com>
+ * @since 0.0.1
+ *
+ */
 public abstract class AbstractHealthIndicator implements HealthIndicator {
 
 	private static final Logger LOGGER = Logger.getLogger(AbstractHealthIndicator.class);

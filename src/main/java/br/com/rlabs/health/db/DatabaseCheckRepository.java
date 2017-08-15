@@ -10,17 +10,17 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
- * The Database Check.
+ * The Database Check Meta Repository.
  * 
  * @author Ryan Padilha <ryan.padilha@gmail.com>
  * @since 0.0.1
  *
  */
-public class DatabaseCheck {
+public final class DatabaseCheckRepository {
 
-	private static final Logger LOGGER = Logger.getLogger(DatabaseCheck.class);
+	private static final Logger LOGGER = Logger.getLogger(DatabaseCheckRepository.class);
 
-	public List<Object> executeSingleQuery(final String query) {
+	public List<Object> executeSingleQuery(final String query) throws SQLException {
 		final List<Object> collection = Collections.emptyList();
 
 		try (Connection connection = ConnectionFactory.getConnection();
@@ -30,7 +30,8 @@ public class DatabaseCheck {
 				collection.add("1");
 			}
 		} catch (SQLException e) {
-			LOGGER.error(e); // log and ignore
+			LOGGER.error(e + " | " + String.format("query: %s", query));
+			throw new SQLException(e);
 		}
 
 		return collection;
