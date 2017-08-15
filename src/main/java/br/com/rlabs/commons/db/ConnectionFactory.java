@@ -1,4 +1,4 @@
-package br.com.rlabs.health.db;
+package br.com.rlabs.commons.db;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import br.com.rlabs.health.commons.Constants;
+import br.com.rlabs.commons.Constants;
 
 /**
  * The connection factory class.

@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import br.com.rlabs.commons.db.ConnectionFactory;
+import br.com.rlabs.commons.db.DatabaseCheckRepository;
 import br.com.rlabs.health.Health.Builder;
-import br.com.rlabs.health.db.ConnectionFactory;
-import br.com.rlabs.health.db.DatabaseCheckRepository;
 
 /**
  * The DataSource Health Indicator.

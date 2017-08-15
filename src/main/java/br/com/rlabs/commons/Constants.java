@@ -1,4 +1,4 @@
-package br.com.rlabs.health.commons;
+package br.com.rlabs.commons;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;

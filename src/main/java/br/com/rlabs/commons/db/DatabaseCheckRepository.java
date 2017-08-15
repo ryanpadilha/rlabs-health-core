@@ -1,4 +1,4 @@
-package br.com.rlabs.health.db;
+package br.com.rlabs.commons.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
