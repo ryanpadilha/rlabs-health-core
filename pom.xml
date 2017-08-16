@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.com.rlabs</groupId>
-	<artifactId>rlabs-health-core</artifactId>
+	<artifactId>vulcano-health-core</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>rlabs-health-core</name>
-	<description>The Health Core Library API Monitor for Microservices</description>
+	<name>vulcano-health-core</name>
+	<description>Vulcano Health Core Library API Monitor for Microservices</description>
 	<url>https://github.com/ryanpadilha</url>
 
 	<developers>
