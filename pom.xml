@@ -95,4 +95,21 @@
 
 		<finalName>${project.artifactId}</finalName>
 	</build>
+
+	<!-- internal repository -->
+	<repositories>
+		<repository>
+			<id>archiva.internal</id>
+			<name>internal repository</name>
+			<url>http://192.168.0.103:8081/repository/internal/</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>archiva.internal</id>
+			<name>${project.name}</name>
+			<url>http://192.168.0.103:8081/repository/internal/</url>
+		</repository>
+	</distributionManagement>
 </project>
