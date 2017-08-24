@@ -1,6 +1,6 @@
-package br.com.rlabs.health;
+package com.rlabs.vulcano.core.health;
 
-import br.com.rlabs.health.Health.Builder;
+import com.rlabs.vulcano.core.health.Health.Builder;
 
 /**
  * The Application Health Indication.

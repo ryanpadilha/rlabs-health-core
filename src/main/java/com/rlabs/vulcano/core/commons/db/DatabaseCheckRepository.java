@@ -1,4 +1,4 @@
-package br.com.rlabs.commons.db;
+package com.rlabs.vulcano.core.commons.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

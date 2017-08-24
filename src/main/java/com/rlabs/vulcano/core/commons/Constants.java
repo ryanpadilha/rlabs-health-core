@@ -1,4 +1,4 @@
-package br.com.rlabs.commons;
+package com.rlabs.vulcano.core.commons;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;

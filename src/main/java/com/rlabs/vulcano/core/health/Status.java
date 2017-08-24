@@ -1,4 +1,4 @@
-package br.com.rlabs.health;
+package com.rlabs.vulcano.core.health;
 
 /**
  * The status enumeration to express the state of the service.

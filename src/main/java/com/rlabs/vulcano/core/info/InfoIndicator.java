@@ -1,4 +1,4 @@
-package br.com.rlabs.info;
+package com.rlabs.vulcano.core.info;
 
 /**
  * Info Indicator Interface.

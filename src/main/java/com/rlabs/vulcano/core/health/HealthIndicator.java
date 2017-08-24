@@ -1,4 +1,4 @@
-package br.com.rlabs.health;
+package com.rlabs.vulcano.core.health;
 
 /**
  * The Health Indicator Interface.

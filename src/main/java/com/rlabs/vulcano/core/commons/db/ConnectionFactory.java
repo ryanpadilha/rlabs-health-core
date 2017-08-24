@@ -1,14 +1,13 @@
-package br.com.rlabs.commons.db;
+package com.rlabs.vulcano.core.commons.db;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import com.rlabs.vulcano.core.commons.Constants;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-
-import br.com.rlabs.commons.Constants;
 
 /**
  * The connection factory class.

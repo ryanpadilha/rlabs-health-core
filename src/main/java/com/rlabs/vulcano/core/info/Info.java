@@ -1,4 +1,4 @@
-package br.com.rlabs.info;
+package com.rlabs.vulcano.core.info;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;

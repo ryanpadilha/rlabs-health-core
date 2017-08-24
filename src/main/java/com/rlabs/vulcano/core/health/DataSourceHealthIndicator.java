@@ -1,12 +1,12 @@
-package br.com.rlabs.health;
+package com.rlabs.vulcano.core.health;
 
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import br.com.rlabs.commons.db.ConnectionFactory;
-import br.com.rlabs.commons.db.DatabaseCheckRepository;
-import br.com.rlabs.health.Health.Builder;
+import com.rlabs.vulcano.core.commons.db.ConnectionFactory;
+import com.rlabs.vulcano.core.commons.db.DatabaseCheckRepository;
+import com.rlabs.vulcano.core.health.Health.Builder;
 
 /**
  * The DataSource Health Indicator.

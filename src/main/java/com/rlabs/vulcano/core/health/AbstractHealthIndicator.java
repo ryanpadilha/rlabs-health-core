@@ -1,8 +1,8 @@
-package br.com.rlabs.health;
+package com.rlabs.vulcano.core.health;
 
 import org.apache.log4j.Logger;
 
-import br.com.rlabs.health.Health.Builder;
+import com.rlabs.vulcano.core.health.Health.Builder;
 
 /**
  * The Abstract Health Indicator.

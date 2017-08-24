@@ -1,4 +1,4 @@
-package br.com.rlabs.commons.utils;
+package com.rlabs.vulcano.core.commons.utils;
 
 import java.util.Date;
 import java.util.Properties;
