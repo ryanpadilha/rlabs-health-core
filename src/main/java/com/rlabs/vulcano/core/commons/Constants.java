@@ -5,7 +5,7 @@ import com.typesafe.config.ConfigFactory;
 
 /**
  * The Constants class.
- * 
+ *
  * @author Ryan Padilha <ryan.padilha@gmail.com>
  * @since 0.0.1
  *
