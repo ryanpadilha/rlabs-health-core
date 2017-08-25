@@ -1,4 +1,4 @@
-package com.rlabs.vulcano.core.health;
+package com.rlabs.vulcano.core.commons;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * The health class for information about a service.
- * 
+ *
  * @author Ryan Padilha <ryan.padilha@gmail.com>
  * @since 0.0.1
  *
@@ -15,17 +15,19 @@ import java.util.Objects;
 public class Health {
 
 	private Status status;
+	private DependencyType type;
 	private final Map<String, Object> details;
 
 	/**
 	 * private constructor, instance only by Builder class
-	 * 
+	 *
 	 * @param builder
 	 */
-	private Health(Builder builder) {
+	private Health(Builder builder, DependencyType type) {
 		Objects.requireNonNull(builder, "Builder must not be null");
 
 		this.status = builder.status;
+		this.type = builder.type;
 		this.details = Collections.unmodifiableMap(builder.details);
 	}
 
@@ -37,12 +39,21 @@ public class Health {
 		return details;
 	}
 
+	public DependencyType getType() {
+		return type;
+	}
+
+	public void setType(DependencyType type) {
+		this.type = type;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((details == null) ? 0 : details.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
@@ -62,12 +73,14 @@ public class Health {
 			return false;
 		if (status != other.status)
 			return false;
+		if (type != other.type)
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Health [status=" + status + ", details=" + details + "]";
+		return "Health [status=" + status + ", type=" + type + ", details=" + details + "]";
 	}
 
 	public static Builder unknown() {
@@ -97,10 +110,12 @@ public class Health {
 	public static class Builder {
 
 		private Status status;
+		private DependencyType type;
 		private Map<String, Object> details;
 
 		public Builder() {
 			this.status = Status.UNKNOWN;
+			this.type = DependencyType.INTERNAL;
 			this.details = new LinkedHashMap<>();
 		}
 
@@ -111,11 +126,37 @@ public class Health {
 			this.details = new LinkedHashMap<>();
 		}
 
+		public Builder(DependencyType type) {
+			Objects.requireNonNull(type, "DependencyType must not be null.");
+
+			this.type = type;
+			this.details = new LinkedHashMap<>();
+		}
+
+		public Builder(Status status, DependencyType type) {
+			Objects.requireNonNull(status, "Status must not be null.");
+			Objects.requireNonNull(type, "DependencyType must not be null");
+
+			this.status = status;
+			this.type = type;
+			this.details = new LinkedHashMap<>();
+		}
+
 		public Builder(Status status, Map<String, ?> details) {
 			Objects.requireNonNull(status, "Status must not be null.");
 			Objects.requireNonNull(details, "Details must not be null.");
 
 			this.status = status;
+			this.details = new LinkedHashMap<>(details);
+		}
+
+		public Builder(Status status, DependencyType type, Map<String, ?> details) {
+			Objects.requireNonNull(status, "Status must not be null.");
+			Objects.requireNonNull(type, "DependencyType must not be null");
+			Objects.requireNonNull(details, "Details must not be null.");
+
+			this.status = status;
+			this.type = type;
 			this.details = new LinkedHashMap<>(details);
 		}
 
@@ -156,7 +197,7 @@ public class Health {
 		}
 
 		public Health build() {
-			return new Health(this);
+			return new Health(this, this.type);
 		}
 
 	}

@@ -5,6 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.rlabs.vulcano.core.commons.Health;
+import com.rlabs.vulcano.core.commons.Status;
+
 /**
  * The Abstract Health Aggretator Class.
  * 

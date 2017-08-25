@@ -2,8 +2,9 @@ package com.rlabs.vulcano.core.health;
 
 import javax.sql.DataSource;
 
-import com.rlabs.vulcano.core.commons.utils.DatabaseCheckRepository;
-import com.rlabs.vulcano.core.health.Health.Builder;
+import com.rlabs.vulcano.core.commons.Health;
+import com.rlabs.vulcano.core.commons.Health.Builder;
+import com.rlabs.vulcano.core.health.impl.DatabaseCheckRepository;
 
 /**
  * The DataSource Health Indicator.

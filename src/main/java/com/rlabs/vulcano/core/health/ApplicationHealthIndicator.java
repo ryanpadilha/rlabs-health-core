@@ -1,6 +1,9 @@
 package com.rlabs.vulcano.core.health;
 
-import com.rlabs.vulcano.core.health.Health.Builder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.rlabs.vulcano.core.commons.Health.Builder;
 
 /**
  * The Application Health Indication.
@@ -13,7 +16,9 @@ public class ApplicationHealthIndicator extends AbstractHealthIndicator {
 
 	@Override
 	protected void doHealthCheck(Builder builder) {
-		builder.up();
+		final Date timestamp = new Date();
+		builder.up().withDetail("request.timestamp", timestamp);
+		builder.up().withDetail("request.timestamp.formatted", new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(timestamp));
 	}
 
 }

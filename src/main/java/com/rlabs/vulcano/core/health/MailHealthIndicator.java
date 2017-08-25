@@ -1,7 +1,7 @@
 package com.rlabs.vulcano.core.health;
 
-import com.rlabs.vulcano.core.commons.utils.JavaMailSender;
-import com.rlabs.vulcano.core.health.Health.Builder;
+import com.rlabs.vulcano.core.commons.Health.Builder;
+import com.rlabs.vulcano.core.health.impl.JavaMailSender;
 
 /**
  * The Mail Health Indicator.

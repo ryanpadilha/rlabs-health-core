@@ -1,4 +1,4 @@
-package com.rlabs.vulcano.core.health;
+package com.rlabs.vulcano.core.commons;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 
 /**
- * Information about service context.
+ * Expose information about service context.
  *
  * @author Ryan Padilha <ryan.padilha@gmail.com>
  * @since 0.0.1
@@ -36,7 +36,7 @@ public final class Info {
 
 	public static Info buildFromPOM() {
 		final MavenXpp3Reader reader = new MavenXpp3Reader();
-		final Builder builder = new Builder();
+		final Info.Builder builder = new Info.Builder();
 
 		try {
 			final Model model = reader.read(new FileReader(POM_FILE));
@@ -45,7 +45,7 @@ public final class Info {
 			builder.withDetail("version", model.getVersion());
 			builder.withDetail("description", model.getDescription());
 		} catch (IOException | XmlPullParserException e) {
-			// ignore
+			builder.withDetail("version", "unknow");
 		}
 
 		return builder.build();

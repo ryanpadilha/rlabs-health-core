@@ -1,4 +1,4 @@
-package com.rlabs.vulcano.core.commons.utils;
+package com.rlabs.vulcano.core.health.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

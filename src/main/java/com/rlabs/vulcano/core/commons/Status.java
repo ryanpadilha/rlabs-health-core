@@ -1,4 +1,4 @@
-package com.rlabs.vulcano.core.health;
+package com.rlabs.vulcano.core.commons;
 
 /**
  * The status enumeration to express the state of the service.

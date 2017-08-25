@@ -2,7 +2,9 @@ package com.rlabs.vulcano.core.health;
 
 import org.apache.log4j.Logger;
 
-import com.rlabs.vulcano.core.health.Health.Builder;
+import com.rlabs.vulcano.core.commons.DependencyType;
+import com.rlabs.vulcano.core.commons.Health;
+import com.rlabs.vulcano.core.commons.Health.Builder;
 
 /**
  * The Abstract Health Indicator.
@@ -16,8 +18,8 @@ public abstract class AbstractHealthIndicator implements HealthIndicator {
 	private static final Logger LOGGER = Logger.getLogger(AbstractHealthIndicator.class);
 
 	@Override
-	public Health health() {
-		final Builder builder = new Health.Builder();
+	public Health health(DependencyType type) {
+		final Builder builder = new Health.Builder(type);
 
 		try {
 			doHealthCheck(builder);

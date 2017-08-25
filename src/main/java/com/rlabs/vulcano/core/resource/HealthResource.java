@@ -1,9 +1,7 @@
 package com.rlabs.vulcano.core.resource;
 
-import java.util.Map;
-
-import com.rlabs.vulcano.core.health.Health;
-import com.rlabs.vulcano.core.health.Info;
+import com.rlabs.vulcano.core.commons.ApplicationHealthWrapper;
+import com.rlabs.vulcano.core.commons.Info;
 
 /**
  * Health API Resource Interface.
@@ -16,6 +14,6 @@ public interface HealthResource {
 
 	Info info();
 
-	Map<String, Health> health();
+	ApplicationHealthWrapper health();
 
 }

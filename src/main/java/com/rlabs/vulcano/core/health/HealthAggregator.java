@@ -2,6 +2,8 @@ package com.rlabs.vulcano.core.health;
 
 import java.util.Map;
 
+import com.rlabs.vulcano.core.commons.Health;
+
 /**
  * The Health Aggregator Interface.
  * 
