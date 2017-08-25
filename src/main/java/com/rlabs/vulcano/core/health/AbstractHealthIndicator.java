@@ -6,7 +6,7 @@ import com.rlabs.vulcano.core.health.Health.Builder;
 
 /**
  * The Abstract Health Indicator.
- * 
+ *
  * @author Ryan Padilha <ryan.padilha@gmail.com>
  * @since 0.0.1
  *
@@ -29,5 +29,5 @@ public abstract class AbstractHealthIndicator implements HealthIndicator {
 		return builder.build();
 	}
 
-	protected abstract void doHealthCheck(Health.Builder builder) throws Exception;
+	protected abstract void doHealthCheck(Health.Builder builder);
 }

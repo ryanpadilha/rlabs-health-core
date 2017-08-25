@@ -1,7 +1,9 @@
 package com.rlabs.vulcano.core.resource;
 
-import com.rlabs.vulcano.entity.vo.HealthEntity;
-import com.rlabs.vulcano.entity.vo.InfoEntity;
+import java.util.Map;
+
+import com.rlabs.vulcano.core.health.Health;
+import com.rlabs.vulcano.core.health.Info;
 
 /**
  * Health API Resource Interface.
@@ -12,8 +14,8 @@ import com.rlabs.vulcano.entity.vo.InfoEntity;
  */
 public interface HealthResource {
 
-	InfoEntity info();
+	Info info();
 
-	HealthEntity health();
+	Map<String, Health> health();
 
 }

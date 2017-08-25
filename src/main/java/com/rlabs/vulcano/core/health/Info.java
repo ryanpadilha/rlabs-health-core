@@ -1,12 +1,18 @@
-package com.rlabs.vulcano.core.info;
+package com.rlabs.vulcano.core.health;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
+import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+
 /**
  * Information about service context.
- * 
+ *
  * @author Ryan Padilha <ryan.padilha@gmail.com>
  * @since 0.0.1
  *
@@ -14,6 +20,7 @@ import java.util.Map;
 public final class Info {
 
 	private final Map<String, Object> details;
+	private static final String POM_FILE = "./pom.xml";
 
 	private Info(Builder builder) {
 		this.details = Collections.unmodifiableMap(builder.details);
@@ -25,6 +32,23 @@ public final class Info {
 
 	public Object get(String key) {
 		return this.details.get(key);
+	}
+
+	public static Info buildFromPOM() {
+		final MavenXpp3Reader reader = new MavenXpp3Reader();
+		final Builder builder = new Builder();
+
+		try {
+			final Model model = reader.read(new FileReader(POM_FILE));
+			builder.withDetail("id", model.getArtifactId());
+			builder.withDetail("name", model.getName());
+			builder.withDetail("version", model.getVersion());
+			builder.withDetail("description", model.getDescription());
+		} catch (IOException | XmlPullParserException e) {
+			// ignore
+		}
+
+		return builder.build();
 	}
 
 	@Override
