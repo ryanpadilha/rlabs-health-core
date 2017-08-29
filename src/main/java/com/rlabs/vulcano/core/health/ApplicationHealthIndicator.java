@@ -17,8 +17,8 @@ public class ApplicationHealthIndicator extends AbstractHealthIndicator {
 	@Override
 	protected void doHealthCheck(Builder builder) {
 		final Date timestamp = new Date();
-		builder.up().withDetail("request.timestamp", timestamp);
-		builder.up().withDetail("request.timestamp.formatted", new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(timestamp));
+		builder.up().withDetail("response.timestamp", timestamp);
+		builder.up().withDetail("response.timestamp.utc", new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(timestamp));
 	}
 
 }
