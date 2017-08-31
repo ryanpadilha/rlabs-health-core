@@ -2,17 +2,46 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-##### Version 0.0.1
-
 Vulcano Health Core Library API Monitor for Microservices.<br>
-This maven-library is used on the <b>Vulcano Health Check API Monitor Project</b> to expose endpoints for monitoring services on SOA.<br><br>
-The goal of this library is include additional features to help monitor and manage applications when it's on production environment.<br>
-Basically we have two endpoints: <i>/health</i> and <i>/info</i> on this version.
+This maven-component-library is used on monitored services by <b>[Vulcano Health Check API Monitor Project](https://github.com/ryanpadilha/vulcano-health-check-monitor)</b>.<br><br>
+The goal is include additional features to help monitor and manage applications when it's on production environment.<br>
+Basically we have, on this version, four endpoints with essential information:
+
+- /health
+- /info
+- /properties
+- /environment
 
 ## Requirements
 
 - Java 1.8 or later.
 - Maven 3.x or later.
+
+## JSON datamodel
+
+```json
+{
+    "application": {
+        "status": "UP",
+        "type": "INTERNAL",
+        "details": {
+            "response.timestamp": 1504211410427,
+            "response.timestamp.utc": "31/08/2017 17:30:10"
+        }
+    },
+    "dependencies": {
+        "db-postgres": {
+            "status": "UP",
+            "type": "EXTERNAL",
+            "details": {
+                "database": "PostgreSQL",
+                "database.version": "9.6.2",
+                "database.statement": "OK"
+            }
+        }
+    }
+}
+```
 
 ## License
 
