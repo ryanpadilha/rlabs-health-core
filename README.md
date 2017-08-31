@@ -12,11 +12,6 @@ Basically we have, on this version, four endpoints with essential information:
 - /properties
 - /environment
 
-## Requirements
-
-- Java 1.8 or later.
-- Maven 3.x or later.
-
 ## JSON datamodel
 
 ```json
@@ -42,6 +37,11 @@ Basically we have, on this version, four endpoints with essential information:
     }
 }
 ```
+
+## Requirements
+
+- Java 1.8 or later.
+- Maven 3.x or later.
 
 ## License
 
