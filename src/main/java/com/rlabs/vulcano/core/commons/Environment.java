@@ -3,6 +3,7 @@ package com.rlabs.vulcano.core.commons;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Expose information of environment variables of running-service context.
@@ -25,6 +26,26 @@ public class Environment {
 
 	public Object get(String key) {
 		return this.details.get(key);
+	}
+
+	public static Environment readSystemVariables() {
+		final Environment.Builder builder = new Environment.Builder();
+
+		try {
+			final Map<String, String> variables = System.getenv();
+			for (Entry<String, String> entry : variables.entrySet()) {
+				builder.withDetail(entry.getKey(), entry.getValue());
+			}
+		} catch (Exception e) {
+			builder.withDetail("environment", "unknow");
+		}
+
+		return builder.build();
+	}
+
+	@Override
+	public String toString() {
+		return "Environment [details=" + details + "]";
 	}
 
 	public static class Builder {

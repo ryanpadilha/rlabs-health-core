@@ -1,9 +1,9 @@
 package com.rlabs.vulcano.core.resource;
 
-import java.util.Map;
-
 import com.rlabs.vulcano.core.commons.ApplicationHealthWrapper;
+import com.rlabs.vulcano.core.commons.Environment;
 import com.rlabs.vulcano.core.commons.Info;
+import com.rlabs.vulcano.core.commons.Property;
 
 /**
  * Health API Resource Interface.
@@ -30,8 +30,18 @@ public interface HealthResource {
 	 */
 	ApplicationHealthWrapper health();
 
-	Map<String, Object> properties();
+	/**
+	 * List all properties of service context.
+	 *
+	 * @return {@link Property}
+	 */
+	Property properties();
 
-	Map<String, Object> environment();
+	/**
+	 * List all system environment variables of service context.
+	 *
+	 * @return {@link Environment}
+	 */
+	Environment environment();
 
 }

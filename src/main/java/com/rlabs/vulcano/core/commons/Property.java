@@ -13,8 +13,7 @@ import java.util.Map;
  */
 public class Property {
 
-	// private static final String APP_CONF = ".conf";
-	// private static final String APP_PROP = ".properties";
+	// TODO read-config manually, in future process automatically
 
 	private final Map<String, Object> details;
 
@@ -28,6 +27,23 @@ public class Property {
 
 	public Object get(String key) {
 		return this.details.get(key);
+	}
+
+	public static Property readProperties(Map<String, Object> properties) {
+		final Property.Builder builder = new Property.Builder();
+
+		if (null != properties && !properties.isEmpty()) {
+			builder.withDetail(properties);
+		} else {
+			builder.withDetail("properties", "unknow");
+		}
+
+		return builder.build();
+	}
+
+	@Override
+	public String toString() {
+		return "Property [details=" + details + "]";
 	}
 
 	public static class Builder {
