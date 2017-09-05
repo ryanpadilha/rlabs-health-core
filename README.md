@@ -68,7 +68,7 @@ public class HealthResourceImpl implements HealthResource {
 
 ```
 
-### JSON datamodel
+### JSON response datamodel
 
 ```json
 {
