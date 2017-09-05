@@ -7,10 +7,10 @@ This maven-component-library is used on monitored services by <b>[Vulcano Health
 The goal is include additional features to help monitor and manage applications when it's on production environment.<br>
 Basically we have, on this version, four endpoints with essential information:
 
-- /health
-- /info
-- /properties
-- /environment
+- /health - check if the service is running correctly with all internal and external dependencies.
+- /info - show details about version.
+- /properties - list all application properties.
+- /environment - relate all system environment variables of service context.
 
 ## JSON datamodel
 
