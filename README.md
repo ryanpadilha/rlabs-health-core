@@ -12,7 +12,63 @@ Basically we have, on this version, four endpoints with essential information:
 - /properties - list all application properties.
 - /environment - relate all system environment variables of service context.
 
-## JSON datamodel
+### Requirements
+
+- Java 1.8 or later.
+- Maven 3.x or later.
+
+## Example of usage in Java
+
+The health resource endpoint class implementation.
+
+```java
+
+@RouteResource(path = "/api/service")
+public class HealthResourceImpl implements HealthResource {
+
+	private static final String DB_IDENTITY = "db-postgres";
+
+	@Override
+	@Route(path = "/health", method = Method.GET)
+	public ApplicationHealthWrapper health() {
+		final Health applicationHealth = new ApplicationHealthIndicator().health(DependencyType.INTERNAL);
+		final ApplicationHealthWrapper wrapper = new ApplicationHealthWrapper(applicationHealth);
+
+		try {
+			DataSourceHealthIndicator databaseIndicator = new DataSourceHealthIndicator(DB_IDENTITY,
+					ConnectionFactory.getDataSource());
+			wrapper.addDependency(DB_IDENTITY, databaseIndicator.health(DependencyType.EXTERNAL));
+		} catch (Exception e) {
+			wrapper.addDependency(DB_IDENTITY, Health.down(e).build());
+		}
+
+		return wrapper;
+	}
+
+	@Override
+	@Route(path = "/info", method = Method.GET)
+	public Info info() {
+		return Info.buildFromPOM(WplacesServiceApplication.class);
+	}
+
+	@Override
+	@Route(path = "/properties", method = Method.GET)
+	public Property properties() {
+		// TODO read-config manually, in future process automatically
+		return Property.readProperties(Constants.getAllProperties());
+	}
+
+	@Override
+	@Route(path = "/environment", method = Method.GET)
+	public Environment environment() {
+		return Environment.readSystemVariables();
+	}
+
+}
+
+```
+
+### JSON datamodel
 
 ```json
 {
@@ -37,11 +93,6 @@ Basically we have, on this version, four endpoints with essential information:
     }
 }
 ```
-
-## Requirements
-
-- Java 1.8 or later.
-- Maven 3.x or later.
 
 ## License
 
