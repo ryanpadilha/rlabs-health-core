@@ -11,4 +11,4 @@ deploy:
     user: ryanpadilha
     key: $BINTRAY_API_KEY
     on:
-      repo: maven
+      all_branches: true
