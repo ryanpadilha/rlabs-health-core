@@ -9,7 +9,6 @@ deploy:
     all_branches: true
     file: src/main/resources/assembly/bintray-deploy.json
     user: ryanpadilha
-    key: 
-      secure: 77eafc5aeaf76d471ed805ee573362ebbe849604
+    key: $BINTRAY_API_KEY
     on:
       all_branches: true
