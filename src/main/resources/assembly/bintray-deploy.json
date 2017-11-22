@@ -12,8 +12,8 @@
 		"public_stats": false
 	},
 	"version": {
-		"name": "${project.version}",
-		"vcs_tag": "${project.version}",
+		"name": "vulcano-health-core",
+		"vcs_tag": "0.0.1",
 		"released": "${build.timestamp}"
 	},
 	"files": [
