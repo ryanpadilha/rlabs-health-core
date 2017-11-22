@@ -1,6 +1,8 @@
 # vulcano-health-core
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build Status](https://api.travis-ci.org/ryanpadilha/vulcano-health-core.png)](https://travis-ci.org/ryanpadilha/vulcano-health-core)
+
 
 Vulcano Health Core Library API Monitor for Microservices.<br>
 This maven-component-library is used on monitored services by <b>[Vulcano Health Check API Monitor Project](https://github.com/ryanpadilha/vulcano-health-check-monitor)</b>.<br><br>
