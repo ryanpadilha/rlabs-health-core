@@ -10,4 +10,4 @@ deploy:
     user: ryanpadilha
     key: $BINTRAY_API_KEY
     on:
-      repo: release
+      repo: ryanpadilha/release
