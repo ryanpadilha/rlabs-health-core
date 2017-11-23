@@ -12,8 +12,7 @@
 		"public_stats": false
 	},
 	"version": {
-		"name": "vulcano-health-core",
-		"vcs_tag": "0.0.1",
+		"name": "0.0.1",
 		"released": "2017-11-22"
 	},
 	"files": [
