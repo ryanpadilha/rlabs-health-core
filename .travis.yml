@@ -10,6 +10,6 @@ deploy:
     file: src/main/resources/assembly/bintray-deploy.json
     user: ryanpadilha
     key: $BINTRAY_API_KEY
-    dry-run: true
+    dry-run: false
     on:
       all_branches: true

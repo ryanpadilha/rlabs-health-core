@@ -20,8 +20,7 @@
 		[
 			{
 				"includePattern": "target/(.*)",
-				"excludePattern": "target/.*.tar.gz$",
-				"uploadPattern": "/$1"
+				"uploadPattern": "com/rlabs/oss/health/vulcano-health-core/0.0.1/$1"
 			}
 		]
 	],
