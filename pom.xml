@@ -98,7 +98,7 @@
 			</resource>
 		</resources>
 
-		<finalName>${project.artifactId}</finalName>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 	</build>
 
 	<!-- internal repository -->
